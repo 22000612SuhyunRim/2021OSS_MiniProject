@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "product.h"
 
 void saveData(Product *p, int count) {
 	FILE *fp;
