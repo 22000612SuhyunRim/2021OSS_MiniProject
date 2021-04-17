@@ -1,6 +1,7 @@
 //moreFunc.c
 
 #include <stdio.h>
+#include <string.h>
 
 void saveData(Product *p, int count) {
 	FILE *fp;
@@ -33,11 +34,57 @@ int loadData(Product *p) {
 
 }
 void searchName(Product *p[], int count) {
+	int check=0;
+	char search[20];
 
-}
-void searchRate(Product *p[], int count) {
-
+	printf("검색할 과일 이름? ");
+	scanf(" %[^\n]", search);
+	printf("      Name     gram    price    rate    rateNum\n");
+	printf("=================================================\n");
+	for(int i=0;i<count;++i) {
+		if(p[i]->pice==NULL) continue;
+		if(strstr(p[i]->name, search)!=NULL) {
+			printf("%d", i+1);
+			readMenu(m[i]);
+			check++;
+		}
+	}
+	if(check==0) printf("검색된 데이터 없음!\n");
 }
 void searchPrice(Product *p[], int count) {
+	int check=0;
+	int search=0;
 
+	printf("검색할 과일 가격? ");
+	scanf(" %d", search);
+	printf("      Name     gram    price    rate    rateNum\n");
+	printf("=================================================\n");
+	for(int i=0;i<count;++i) {
+		if(p[i]->pice==NULL) continue;
+		if(p[i]->price==search) {
+			printf("%d", i+1);
+			readMenu(m[i]);
+			check++;
+		}
+	}
+	if(check==0) printf("검색된 데이터 없음!\n");
+}
+void searchRate(Product *p[], int count) {
+	int check=0;
+	int search=0;
+
+
+	printf("검색할 과일 별점? ");
+	scanf(" %d", search);
+	printf("      Name     gram    price    rate    rateNum\n");
+	printf("=================================================\n");
+	for(int i=0;i<count;++i) {
+		if(p[i]->pice==NULL) continue;
+		if(p[i]->rate==search) {
+			printf("%d", i+1);
+			readMenu(m[i]);
+			check++;
+		}
+	}
+	if(check==0) printf("검색된 데이터 없음!\n");
 }
