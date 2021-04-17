@@ -24,7 +24,7 @@ void saveData(Product *p[], int count) {
 	fp = fopen("fruitshop.txt", "wt");
 	for(int i=0;i<count;++i) {
 		//if(p[i].price == NULL) continue;
-		fprintf(fp, "%s, %d, %d, %d, %d", p[i]->name, p[i]->gram, p[i]->price, p[i]->rate, p[i]->rateNum );
+		fprintf(fp, "%s, %d, %d, %d, %d\n", p[i]->name, p[i]->gram, p[i]->price, p[i]->rate, p[i]->rateNum );
 	}
 	fclose(fp);
 	printf("=> 저장됨!\n");
