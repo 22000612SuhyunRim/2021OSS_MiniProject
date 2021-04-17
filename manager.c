@@ -21,10 +21,10 @@ int selectionDataNo(Product *p[], int count) {
 }
 void saveData(Product *p[], int count) {
 	FILE *fp;
-	fp = fopen("fruitshop.txt", "wt");
+	fp = fopen("C:/Users/hyuni/shop1.txt", "w");
 	for(int i=0;i<count;++i) {
 		//if(p[i].price == NULL) continue;
-		fprintf(fp, "%s, %d, %d, %d, %d\n", p[i]->name, p[i]->gram, p[i]->price, p[i]->rate, p[i]->rateNum );
+		fprintf(fp, "%s %d %d %d %d\n", p[i]->name, p[i]->gram, p[i]->price, p[i]->rate, p[i]->rateNum );
 	}
 	fclose(fp);
 	printf("=> 저장됨!\n");
@@ -32,7 +32,7 @@ void saveData(Product *p[], int count) {
 int loadData(Product *p[]) {
 	FILE *fp;
 	int i;
-	fp = fopen("fruitshop.txt", "rt");
+	fp = fopen("shop1.txt", "r");
 	if (fp==NULL) {
 		printf("=> 파일없음!\n");
 		return 0;
