@@ -13,14 +13,23 @@ void saveData(Product *p, int count) {
 	printf("=> 저장됨!\n");
 }
 int loadData(Product *p) {
-	int count=0;
 	FILE *fp;
 	fp = fopen("fruitshop.txt", "rt");
 	if (fp==NULL) {
 		printf("=> 파일없음!\n");
 		return 0;
 	}
-	for(int i=0;i<
+	for(int i=0;i<20;++i) {
+		fscanf(fp, "%s", p[i]->name);
+		fscanf(fp, "%d", p[i]->gram);
+		fscanf(fp, "%d", p[i]->price);
+		fscanf(fp, "%d", p[i]->rate);
+		fscanf(fp, "%d", p[i]->rateNum);
+		if(feof(fp)) break;
+	}
+	fclose(fp);
+	printf("=> 로딩성공!\n");
+	return i;
 
 }
 void searchName(Product *p[], int count) {
