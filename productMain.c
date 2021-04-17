@@ -9,6 +9,9 @@ int main() {
 	int menu;
 	int count=0;
 
+	count = loadData(plist);
+	idx=count;
+
 	while(1) {
 		menu=selectMenu();
 		if(menu==0) break;
