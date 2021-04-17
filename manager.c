@@ -1,6 +1,7 @@
 //manager.c
 
 #include <stdio.h>
+#include <string.h>
 #include "manager.h"
 void listProduct(Product *p[], int count){
 	printf("      Name     gram    price    rate    rateNum\n");
@@ -18,7 +19,7 @@ int selectionDataNo(Product *p[], int count) {
 	scanf("%d", &n);
 	return n;
 }
-void saveData(Product *p, int count) {
+void saveData(Product p, int count) {
 	FILE *fp;
 	fp = fopen("fruitshop.txt", "wt");
 	for(int i=0;i<count;++i) {
@@ -53,7 +54,7 @@ void searchName(Product *p[], int count) {
 	char search[20];
 
 	printf("검색할 과일 이름? ");
-	scanf(" %[^\n]", &search);
+	scanf(" %[^\n]", search);
 	printf("      Name     gram    price    rate    rateNum\n");
 	printf("=================================================\n");
 	for(int i=0;i<count;++i) {

@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "manager.h"
-#include "moreFunc.h"
 
 int main() {
 	Product *plist[20];
