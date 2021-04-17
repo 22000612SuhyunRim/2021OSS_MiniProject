@@ -19,17 +19,17 @@ int selectionDataNo(Product *p[], int count) {
 	scanf("%d", &n);
 	return n;
 }
-void saveData(Product p, int count) {
+void saveData(Product *p[], int count) {
 	FILE *fp;
 	fp = fopen("fruitshop.txt", "wt");
 	for(int i=0;i<count;++i) {
 		//if(p[i].price == NULL) continue;
-		fprintf(fp, "%s, %d, %d, %d, %d", p[i].name, p[i].gram, p[i].price, p[i].rate, p[i].rateNum );
+		fprintf(fp, "%s, %d, %d, %d, %d", p[i]->name, p[i]->gram, p[i]->price, p[i]->rate, p[i]->rateNum );
 	}
 	fclose(fp);
 	printf("=> 저장됨!\n");
 }
-int loadData(Product *p) {
+int loadData(Product *p[]) {
 	FILE *fp;
 	int i;
 	fp = fopen("fruitshop.txt", "rt");
@@ -38,11 +38,11 @@ int loadData(Product *p) {
 		return 0;
 	}
 	for(i=0;i<20;++i) {
-		fscanf(fp, "%s", p[i].name);
-		fscanf(fp, "%d", &p[i].gram);
-		fscanf(fp, "%d", &p[i].price);
-		fscanf(fp, "%d", &p[i].rate);
-		fscanf(fp, "%d", &p[i].rateNum);
+		fscanf(fp, "%s", p[i]->name);
+		fscanf(fp, "%d", &p[i]->gram);
+		fscanf(fp, "%d", &p[i]->price);
+		fscanf(fp, "%d", &p[i]->rate);
+		fscanf(fp, "%d", &p[i]->rateNum);
 		if(feof(fp)) break;
 	}
 	fclose(fp);
