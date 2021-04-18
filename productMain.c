@@ -8,13 +8,17 @@ int main() {
 	int idx=0;
 	int menu;
 	int count=0;
-
+	for(int i=0;i<20;++i) {
+		plist[i] = (Product*)malloc(sizeof(Product));
+	}
 	count = loadData(plist);
 	idx=count;
 
 	while(1) {
 		menu=selectMenu();
-		if(menu==0) break;
+		if(menu==0) {
+			break;
+		}
 		else if(menu==1) {
 			#ifdef DEBUG
 				printf("=> DEBUGMODE\n");
@@ -23,12 +27,12 @@ int main() {
 				else printf("저장된 과일이 없습니다.\n");
 		}
 		else if(menu==2) {
-			plist[idx] = (Product*)malloc(sizeof(Product));
 			#ifdef DEBUG
 				printf("=> DEBUGMODE\n");
 			#endif
-				addProduct(plist[idx++]);
-			count++;
+				addProduct(plist[idx]);
+				idx++;
+				count++;
 		}
 		else if(menu==3) {
 			#ifdef DEBUG
@@ -69,6 +73,9 @@ int main() {
 		else if(menu==8) {
 			searchPrice(plist, idx);
 		}
+	}
+	for(int i=0;i<20;++i) {
+		free(plist[i]);
 	}
 	printf("=> 종료됨!\n");
 	return 0;
